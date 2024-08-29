@@ -1,0 +1,459 @@
+/* Variables CSS pour les couleurs et typographies */
+:root {
+    --primary-color: #4B8AFC; /* Nouvelle couleur de fond pour la barre de navigation */
+    --secondary-color: #FBAA19; /* Brand Secondary Color */
+    --accent-color: #1AB22D; /* Brand Tertiary Color */
+    --background-color: #f9f9f9;
+    --text-color: #484848;
+    --light-text-color: #fff;
+    --font-family: 'Arial', sans-serif;
+    --font-size-base: 16px;
+    --transition-speed: 0.3s;
+}
+
+/* Reset de base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    /*margin: 0;  /* Réactivation de la marge de réinitialisation */
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    width: 85%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-speed);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Header */
+.header {
+    background-color: var(--primary-color);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Aligne verticalement les éléments */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--light-text-color);
+}
+
+.logo .logo-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+nav ul {
+    display: flex;
+    gap: 15px;
+}
+
+/* Styles par défaut (Full Page sur PC) */
+nav ul li a {
+    font-size: 1.25rem; /* Taille d'écriture augmentée pour plus de visibilité */
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    color: var(--light-text-color); /* Le texte reste blanc sur PC */
+}
+
+/* Styles spécifiques pour les mobiles (écrans de 768px ou moins) */
+@media (max-width: 768px) {
+    nav ul li a {
+        color: #484848; /* Le texte devient gris foncé sur mobile */
+    }
+}
+
+
+nav ul li a.cta {
+    background-color: var(--secondary-color); /* Secondary Brand Color */
+    color: var(--light-text-color);
+}
+
+nav ul li a.cta:hover,
+nav ul li a:hover {
+    background-color: var(--accent-color); /* Tertiary Brand Color */
+    color: #484848; /* Le texte devient gris foncé au survol */
+}
+
+/* Supprimer le bouton hamburger sur les grands écrans */
+.menu-toggle {
+    display: none;
+}
+
+/* Hero Section */
+.hero {
+    background: url('images/hero.jpg') no-repeat center center/cover;
+    color: var(--light-text-color);
+    text-align: center;
+    height: calc(100vh - 60px); /* Ajuste la hauteur en fonction du header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero h1, .hero p, .hero .btn {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+
+.hero h1 {
+    font-size: 3rem; /* Ajuste la taille pour un meilleur impact visuel */
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    border-radius: 50px;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.hero .btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+/* Sections Générales */
+section {
+    padding: 50px 0;
+    animation: fadeIn var(--transition-speed) ease-out;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* About Section */
+.about {
+    background-color: var(--background-color);
+    text-align: center;
+}
+
+.about p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+/* Benefits Section */
+.benefits {
+    background-color: #fff;
+    text-align: center;
+}
+
+.benefit-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.benefit-cards .card {
+    flex-basis: 30%;
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.benefit-cards .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.benefit-cards .card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.benefit-cards .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.benefit-cards .card p {
+    font-size: 1rem;
+}
+
+/* Impact Section */
+.impact {
+    background-color: var(--background-color);
+    text-align: center;
+    padding: 70px 0; /* Maintient une bonne marge pour l'espacement */
+}
+
+.impact p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 30px; /* Ajuste l'espacement entre les éléments */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.impact .btn {
+    font-size: 1.5rem;
+    padding: 10px 30px;
+    border-radius: 50px;
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.impact .btn:hover {
+    background-color: #555;
+    transform: translateY(-5px);
+}
+
+/* Booking Section */
+.booking {
+    background-color: #fff;
+    text-align: center;
+    padding-top: 70px; /* Ajusté pour descendre un peu plus */
+}
+
+.booking .btn {
+    font-size: 1.25rem;
+    padding: 15px 30px;
+    border-radius: 50px;
+    background-color: var(--primary-color); /* Utilise la couleur bleue définie comme couleur primaire */
+    color: var(--light-text-color); /* Texte en blanc */
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed), transform var(--transition-speed);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.booking .btn:hover {
+    background-color: #555;
+    transform: translateY(-5px);
+}
+
+/* Footer */
+.footer {
+    padding: 20px 0;
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    text-align: center;
+}
+
+.footer-links {
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: var(--light-text-color);
+    transition: opacity var(--transition-speed);
+}
+
+.footer-links a:hover {
+    opacity: 0.7;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+    transition: opacity var(--transition-speed);
+}
+
+.social-icons img:hover {
+    opacity: 0.8;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Hide the nav list by default on mobile */
+        flex-direction: column;
+        gap: 10px;
+        background-color: #fff; /* Set a background color for the dropdown */
+        position: absolute;
+        top: 60px;
+        right: 0; /* Aligner le menu à droite */
+        width: 100%; /* S'assurer que le menu s'étend sur toute la largeur de l'écran */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        border-radius: 0 0 5px 5px;
+        z-index: 1000;
+    }
+
+    nav ul.show {
+        display: flex; /* Show the nav list when toggled */
+    }
+
+    .menu-toggle {
+        display: block; /* Show the hamburger menu */
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--light-text-color);
+    }
+
+    .menu-toggle:focus {
+        outline: none;
+    }
+
+    .nav-list li {
+        margin: 0;
+    }
+
+    .nav-list li a {
+        display: block;
+        padding: 15px; /* Augmenter le padding pour une meilleure touchabilité */
+        text-align: center; /* Centrer le texte dans les liens du menu */
+        border-bottom: 1px solid #ddd;
+    }
+
+    .nav-list li a:last-child {
+        border-bottom: none;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* Superpose les cartes dans la section "Benefits" */
+    .benefit-cards {
+        flex-direction: column;
+    }
+
+    .benefit-cards .card {
+        flex-basis: 100%;
+    }
+
+    /* Ajustements du bouton en mode mobile */
+    .impact .btn {
+        font-size: 1rem;
+        padding: 10px 20px; /* Ajustement du padding pour s'assurer que le texte a assez d'espace */
+        border-radius: 50px;
+        background-color: var(--secondary-color); /* Conserve la couleur jaune/orange */
+        color: var(--light-text-color); /* Texte en blanc */
+        transition: background-color var(--transition-speed), transform var(--transition-speed);
+        white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
+    }
+}
+
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
